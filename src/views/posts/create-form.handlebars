@@ -1,0 +1,37 @@
+<div class="container">
+  <form id="form-create" method="post" action="/posts/create">
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input name="title" type="text" class="form-control" id="title" />
+    </div>
+    <div class="mb-3">
+      <label for="image" class="form-label">link image</label>
+      <input
+        value="{{post.image}}"
+        name="image"
+        type="text"
+        class="form-control"
+        id="image"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <input
+        name="description"
+        type="text"
+        class="form-control"
+        id="description"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="content" class="form-label">Content</label>
+      <textarea
+        name="content"
+        class="form-control"
+        id="content"
+        rows="10"
+      ></textarea>
+    </div>
+    <button type="submit" class="btn w-25 btn-primary">Post</button>
+  </form>
+</div>

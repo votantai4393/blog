@@ -1,0 +1,44 @@
+<div class="container">
+  <form method="post" action="/posts/{{post._id}}/update?_method=PUT">
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input
+        value="{{post.title}}"
+        name="title"
+        type="text"
+        class="form-control"
+        id="title"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="image" class="form-label">link image</label>
+      <input
+        value="{{post.image}}"
+        name="image"
+        type="text"
+        class="form-control"
+        id="image"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <input
+        value="{{post.description}}"
+        name="description"
+        type="text"
+        class="form-control"
+        id="description"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="content" class="form-label">Content</label>
+      <textarea
+        name="content"
+        class="form-control"
+        id="content"
+        rows="10"
+      >{{post.content}}</textarea>
+    </div>
+    <button type="submit" class="btn w-25 btn-primary">Edit</button>
+  </form>
+</div>

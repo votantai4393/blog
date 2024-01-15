@@ -1,0 +1,52 @@
+{{! breadcrumb }}
+<div class="container">
+  <nav
+    style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);"
+    aria-label="breadcrumb"
+  >
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">{{post.title}}</li>
+    </ol>
+  </nav>
+</div>
+
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-lg-9">
+      <div class="row">
+        <div class="car col-lg-12 shadow-sm">
+          <div class="card-body p-3">
+            <h3 class="card-title">{{post.title}}</h3>
+            <h6 class="card-subtitle mb-2 text-body-secondary"></h6>
+            <h5 class="card-text text-secondary">{{post.description}}
+              <div class="">
+                <img class="w-100 my-4" src={{post.image}} alt="sub-post" />
+              </div>
+            </h5>
+            <div class="">
+              {{post.content}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 d-flex flex-column">
+      <div class="position-sticky top-0 pt-4">
+        <div class="social-media d-flex flex-column mb-5 ps-4">
+          <a href=""><i class="fs-3 mb-3 fa-solid fa-paperclip"></i></a>
+          <a href=""><i class="fs-3 mb-3 fa-solid fa-envelope"></i></a>
+          <a href=""><i class="fs-3 mb-3 fa-brands fa-facebook"></i></a>
+          <a href=""><i class="fs-3 mb-3 fa-brands fa-twitter"></i></a>
+          <a href=""><i class="fs-3 fa-brands fa-linkedin"></i></a>
+        </div>
+        <a href="">
+          <div
+            class="advertise-image"
+            style="background-image: url('/images/advertise.png')"
+          ></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

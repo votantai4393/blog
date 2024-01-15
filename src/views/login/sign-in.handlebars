@@ -1,0 +1,30 @@
+<div class="container m-4 w-50 mx-auto shadow p-4">
+ <form>
+  <div class="title d-flex justify-content-between align-items-end mb-3">
+    <h3 class="fs-2 fw-bold text-center">Sign up</h3>
+    <label class="form-check-label pb-2" >Already have an account? <a href="/login/login">Login</a></label>
+  </div>
+
+  {{!-- email field --}}
+  <div class="mb-4">
+    <label for="email" class="form-label fw-medium">Email</label>
+    <input name="email" placeholder="Enter your email ..." type="email" class="form-control py-2 " id="email" aria-describedby="emailHelp">
+  </div>
+
+  {{!-- password field --}}
+  <div class="mb-4">
+    <label for="password" class="form-label fw-medium">Password</label>
+    <input name="password" placeholder="Enter your password ..." type="password" class="form-control py-2" id="password">
+  </div>
+
+ {{!-- confirm password field --}}
+  <div class="mb-4">
+    <label for="confirmPassword" class="form-label fw-medium">Confirm password</label>
+    <input name="confirmPassword" placeholder="Enter your password again ..." type="password" class="form-control py-2" id="confirmPassword">
+  </div>
+  {{!-- summit button --}}
+  <div class="d-flex">
+    <button type="submit" class="btn btn-primary w-50 mx-auto">Sign up</button>
+  </div>
+</form>
+</div>

@@ -1,0 +1,21 @@
+{
+  "type": "module",
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "a learning application to learn nodejs",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "nodemon --inspect src/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-handlebars": "^7.1.2",
+    "method-override": "^3.0.0",
+    "mongoose": "^7.6.8"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}

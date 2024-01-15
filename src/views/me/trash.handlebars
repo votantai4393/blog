@@ -1,0 +1,114 @@
+{{! breadcrumb }}
+<div class="container py-3 px-5 d-flex justify-content-between">
+  <nav
+    style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);"
+    aria-label="breadcrumb"
+  >
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Your trash</li>
+    </ol>
+  </nav>
+  <a class="text-decoration-none" href="/me/posts">
+    <i class="fs-3 fa-solid fa-list"></i>
+  </a>
+</div>
+
+<div class="container">
+  <table class="table text-center">
+    <thead>
+      <tr class="">
+        <th scope="col">No.</th>
+        <th scope="col">Title</th>
+        <th scope="col">Date post</th>
+        <th scope="col">Date delete</th>
+        <th scope="col" colspan="2">Options</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each posts}}
+        <tr>
+          <th scope="row">{{increaseOne @index}}</th>
+          <td>{{this.title}}</td>
+          <td>{{this.createdAt}}</td>
+          <td>{{this.deletedAt}}</td>
+          <td class="d-flex gap-3 justify-content-center">
+            <button
+              type="button"
+              data={{this._id}}
+              class="restore-btn btn btn-success"
+            >Restore</button>
+            <button
+              type="button"
+              data={{this._id}}
+              class="force-delete-btn btn btn-danger"
+              data-bs-toggle="modal"
+              data-bs-target="#staticBackdrop"
+            >Remove</button>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  {{#if (isEmpty posts)}}
+    <div class="text-center mt-5 shadow p-5 w-50 mx-auto">
+      <h5>The trash is empty!</h5>
+      <a href="/me/posts">Comeback</a>
+    </div>
+  {{/if}}
+</div>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="staticBackdrop"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 me-2" id="staticBackdropLabel">This post
+          will be deleted forever and you can not restore the post !</h1>
+        <button
+          type="button"
+          class="btn-close mb-3"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        Are you sure ?
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+        >Cancel</button>
+        <form id="form-force-delete" method="post">
+          <button type="submit" class="btn btn-primary">Delete</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<form id="restore-form" method="post"></form>
+
+<script>
+  const restoreForm = document.querySelector('#restore-form'); const
+  restoreButtons = document.querySelectorAll('.restore-btn'); const
+  forceDeleteForm = document.querySelector('#form-force-delete'); const
+  forceDeleteButtons = document.querySelectorAll('.force-delete-btn'); for(const
+  btn of forceDeleteButtons) { btn.addEventListener('click', () => {
+  forceDeleteForm.setAttribute('action',
+  `/posts/${btn.getAttribute('data')}/force-delete?_method=DELETE`); }); }
+  for(const btn of restoreButtons) { btn.addEventListener('click', () => {
+  restoreForm.setAttribute('action',
+  `/posts/${btn.getAttribute('data')}/restore?_method=PATCH`);
+  restoreForm.submit(); }); }
+</script>

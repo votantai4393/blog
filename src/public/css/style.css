@@ -1,0 +1,35 @@
+.advertise-image {
+  min-height: 50%;
+  width: 200px;
+  height: 300px;
+  background-repeat: no-repeat;
+}
+.social-media a i {
+  color: #000;
+}
+.social-media a i:hover {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.side-things {
+  top: 72px;
+}
+
+html {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 82px;
+}
+
+a.post {
+  text-decoration: none;
+  color: unset;
+}
+
+.thumbnail {
+  background-repeat: no-repeat;
+  height: 250px;
+  background-position: center;
+  background-position-x: center;
+  background-size: cover;
+}

@@ -1,0 +1,46 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-lg-9">
+      <div class="row">
+        {{#each posts}}
+          <div class="car row d-flex mb-3 col-lg-12 shadow-sm">
+            <div
+              class="thumbnail col-lg-6"
+              style="background-image: url({{this.image}});"
+            ></div>
+            <div class="col-lg-6">
+              <a class="post" href="/posts/{{this._id}}">
+                <div class="p-3">
+                  <h5 class="card-title">{{this.title}}</h5>
+                  <h6 class="card-subtitle mb-2 text-body-secondary"></h6>
+                  <p class="card-text">{{this.description}}
+                    <span class="d-flex justify-content-end">
+                      <a class="end-0" href="/posts/{{this._id}}">read more ...</a>
+                    </span>
+                  </p>
+                </div>
+              </a>
+            </div>
+          </div>
+        {{/each}}
+      </div>
+    </div>
+    <div class="col-lg-3 d-flex flex-column">
+      <div class="position-sticky side-things">
+        <div class="social-media d-flex flex-column mb-5 ps-4">
+          <a href=""><i class="fs-3 mb-3 fa-solid fa-paperclip"></i></a>
+          <a href=""><i class="fs-3 mb-3 fa-solid fa-envelope"></i></a>
+          <a href=""><i class="fs-3 mb-3 fa-brands fa-facebook"></i></a>
+          <a href=""><i class="fs-3 mb-3 fa-brands fa-twitter"></i></a>
+          <a href=""><i class="fs-3 fa-brands fa-linkedin"></i></a>
+        </div>
+        <a href="#">
+          <div
+            class="advertise-image"
+            style="background-image: url('/images/advertise.png')"
+          ></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
